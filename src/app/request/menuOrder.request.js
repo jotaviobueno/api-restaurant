@@ -10,13 +10,13 @@ class menuOrders {
             .required ("the name is required for registration")
             .min (3,"the name cannot be less than 3"),
 
-            jwt_token: yup.string ('email is not defined')
-            .required ("the email is required for registration")
+            jwt_token: yup.string ('jwt_token is not defined')
+            .required ("the jwt_token is required")
             .min(300, 'invalid token'),
         });
     
         try {
-            await schema.validate(req.body);
+            await schema.validate(req.headers);
 
         } catch(err) {
             return res.status(400).json({

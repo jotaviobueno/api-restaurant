@@ -4,7 +4,7 @@ class menuOrderController {
     async getAllOrders (req, res) {
         const {session_id, jwt_token} = req.headers;
 
-        if (jwt_token.length != 331)
+        if (jwt_token.length < 331)
         return res.status(401).json({message: 'Invalid jwt token'});
 
         if (! await menuOrderRepository.verifyEmployee(session_id))
@@ -20,6 +20,7 @@ class menuOrderController {
     async createOrder (req, res) {
         const {dishes} = req.body;
         const table_id = req.params.table_id;
+
 
             if (! await menuOrderRepository.verifyDish(dishes)) 
             return res.status(401).json({message: 'wrong menu id'});

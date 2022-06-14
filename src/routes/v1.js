@@ -39,6 +39,6 @@ router.post('/reserve', reserve_a_table.validateReserve_a_table, reserve_a_book.
 router.get('/dish', menuController.getAllMenuItems);
 router.post('/create/dish', menu.validateCreateDish, menuController.createMenuItems);
 
-// //menu orders
+//menu orders
 router.get('/menu', menuOrders.validateGetAllOrders, menuOrdersController.getAllOrders);
 router.post('/menu/:table_id', menuOrders.validateCreateOrder, menuOrdersController.createOrder);

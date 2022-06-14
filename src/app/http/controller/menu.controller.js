@@ -12,7 +12,7 @@ class menuController {
         if (! await menuRepository.verifyExist(+dish_number))
         return res.status(422).json({message: 'id exist'});
 
-        if (jwt_token.length < 331)
+        if (jwt_token.length < 330)
         return res.status(401).json({message: 'Invalid jwt token'});
 
         if (! await menuRepository.verifyEmployee(session_id))
